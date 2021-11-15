@@ -14,7 +14,6 @@ div#mainDiv{
     height: 700px;
     margin: auto auto;
     border-radius: 50px;
-    background-color: rgba(80, 94, 138, 0.432);
     text-align: center;
 }
 div#mainDiv button,input{
