@@ -1,0 +1,33 @@
+body{
+    background-color: tomato;
+    background-image: url("hatter.png");
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+}
+h1{
+    color: whitesmoke;
+    font: 30px "Roboto Mono", monospace;
+}
+div#mainDiv{
+    width: 80%;
+    height: 700px;
+    margin: auto auto;
+    border-radius: 50px;
+    background-color: rgba(80, 94, 138, 0.432);
+    text-align: center;
+}
+div#mainDiv button,input{
+    text-align: center;
+    background-color: tomato;
+    color: whitesmoke;
+    font: 15px "Roboto Mono", monospace;
+}
+div#mainDiv table{
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+}
+h1{
+    text-align: center;
+}
