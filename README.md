@@ -1,2 +1,2 @@
 # coin-fliper-with-rules
-asd
+https://coin-flipper-4-szabeman.netlify.app/
