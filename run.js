@@ -16,9 +16,9 @@ function Generate5(x,y){
 function ImgHover(onoff,id){
     rnd = document.getElementById(id).value
     if(onoff){
-        document.getElementById(id).src=rnd-1+".png"
+        document.getElementById(id).src="imgs/"+(rnd-1)+".png"
     }else{
-        document.getElementById(id).src=rnd+".png"
+        document.getElementById(id).src="imgs/"+rnd+".png"
     }
 }
 function Generate10(x,y){
@@ -103,8 +103,13 @@ function InsertImg(x,y){
         }   
     }
 }
+function ResetAll(){
+    fotomb = new Array()
+    document.getElementById("table").innerHTML=""
+}
 
 function Epit(){
+    ResetAll()
     var x = document.getElementById("n").value;
     var y = document.getElementById("in").value;
     for (let i = 0; i < x; i++) {

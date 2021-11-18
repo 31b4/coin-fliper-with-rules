@@ -1,6 +1,6 @@
 body{
     background-color: tomato;
-    background-image: url("hatter.png");
+    background-image: url("imgs/hatter.png");
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-size: cover;
