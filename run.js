@@ -24,7 +24,9 @@ function ImgHover(onoff,id){
 function Generate10(x,y){
     for (let i = 0; i < 10; i++) {
         run = true
+        counter = 0
         while(run){
+            counter++
             var rndpos = [Math.floor(Math.random() * x-1) + 1,Math.floor(Math.random() * y-1) + 1]
             if(fotomb[rndpos[0]][rndpos[1]]==0){
                 run = SameNeighboor(rndpos[0],rndpos[1],8,x,y)
@@ -32,7 +34,6 @@ function Generate10(x,y){
         }
         fotomb[rndpos[0]][rndpos[1]] = 8
     }
-    console.log(fotomb)
 }
 function SameNeighboor(i,j,rnd,x,y){
     var run = false
@@ -81,11 +82,8 @@ function InsertImg(x,y){
                 if (rnd== 8){
                     rnd += 2
                 }
-                console.log(rnd)
                 run = SameNeighboor(i,j,rnd,x,y)
             }
-            console.log("rndjo "+ rnd)
-
             var td = document.getElementById(i+","+j)
             fotomb[i][j] = rnd
             var img = document.createElement("img")
@@ -107,7 +105,6 @@ function ResetAll(){
     fotomb = new Array()
     document.getElementById("table").innerHTML=""
 }
-
 function Epit(){
     ResetAll()
     var x = document.getElementById("n").value;
@@ -131,3 +128,4 @@ function Epit(){
     }
     InsertImg(x,y)
 }
+
