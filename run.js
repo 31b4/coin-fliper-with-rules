@@ -11,7 +11,6 @@ function ValidTest(cord,x,y){
 function Generate5(x,y){
     var rnd5 = [Math.floor(Math.random() * x-1) + 1,Math.floor(Math.random() * y-1) + 1]
     fotomb[rnd5[0]][rnd5[1]] = 2
-    counter = 0
 }
 function ImgHover(onoff,id){
     rnd = document.getElementById(id).value
@@ -22,17 +21,32 @@ function ImgHover(onoff,id){
     }
 }
 function Generate10(x,y){
-    for (let i = 0; i < 10; i++) {
-        run = true
-        counter = 0
-        while(run){
-            counter++
-            var rndpos = [Math.floor(Math.random() * x-1) + 1,Math.floor(Math.random() * y-1) + 1]
-            if(fotomb[rndpos[0]][rndpos[1]]==0){
-                run = SameNeighboor(rndpos[0],rndpos[1],8,x,y)
+    while(true){
+        NullArray(x,y)
+        Generate5(x,y)
+        for (let i = 0; i < 10; i++) {
+            var run = true
+            var fill = true
+            var counter = 0
+            while(run){
+                counter++
+                var rndpos = [Math.floor(Math.random() * x-1) + 1,Math.floor(Math.random() * y-1) + 1]
+                if(fotomb[rndpos[0]][rndpos[1]]==0){
+                    run = SameNeighboor(rndpos[0],rndpos[1],8,x,y)
+                }
+                if(counter == 1000){
+                    fill = false
+                    break
+                }
             }
+            if(!fill){
+                break
+            }
+            fotomb[rndpos[0]][rndpos[1]] = 8
         }
-        fotomb[rndpos[0]][rndpos[1]] = 8
+        if(fill){
+            return
+        }
     }
 }
 function SameNeighboor(i,j,rnd,x,y){
@@ -60,7 +74,6 @@ function SameNeighboor(i,j,rnd,x,y){
     return run
 }
 function InsertImg(x,y){
-    Generate5(x,y)
     Generate10(x,y)
     for (let i = 0; i < x; i++) {
         for (let j = 0; j < y; j++) {
@@ -87,6 +100,9 @@ function InsertImg(x,y){
             var td = document.getElementById(i+","+j)
             fotomb[i][j] = rnd
             var img = document.createElement("img")
+            // if(rnd==8){
+                // img.style.backgroundColor="red" 
+            // }
             img.style.height="100px"
             img.src="imgs/"+rnd+".png"
             img.id=i+"img"+j
@@ -105,10 +121,8 @@ function ResetAll(){
     fotomb = new Array()
     document.getElementById("table").innerHTML=""
 }
-function Epit(){
-    ResetAll()
-    var x = document.getElementById("n").value;
-    var y = document.getElementById("in").value;
+function NullArray(x,y){
+    fotomb= new Array()
     for (let i = 0; i < x; i++) {
         var altomb = new Array
         for (let j = 0; j < y; j++) {
@@ -116,6 +130,12 @@ function Epit(){
         }
         fotomb.push(altomb)   
     }
+}
+function Epit(){
+    ResetAll()
+    var x = document.getElementById("n").value;
+    var y = document.getElementById("in").value;
+    NullArray(x,y)
     var table = document.getElementById("table")
     for (let i = 0; i < x; i++) {
         var tr = document.createElement("tr")
