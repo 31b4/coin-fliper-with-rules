@@ -73,7 +73,14 @@ h1{
     opacity: 1;
     right: 0;
   }
- 
-
-
+   img { 
+    transition: all 0.3s ease-in-out 0s; 
+    transform-style: preserve-3d;
+  }
+  img:hover
+  {
+    cursor: default;
+    transition: all 0.3s ease-in-out 0s;
+    transform: rotateY(360deg);
+  }
   

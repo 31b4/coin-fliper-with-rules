@@ -12,12 +12,20 @@ function Generate5(x,y){
     var rnd5 = [Math.floor(Math.random() * x-1) + 1,Math.floor(Math.random() * y-1) + 1]
     fotomb[rnd5[0]][rnd5[1]] = 2
 }
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+      end = new Date().getTime();
+   }
+ }
 function ImgHover(onoff,id){
     rnd = document.getElementById(id).value
+    img = document.getElementById(id)
     if(onoff){
-        document.getElementById(id).src="imgs/"+(rnd-1)+".png"
+        img.src="imgs/"+(rnd-1)+".png"
     }else{
-        document.getElementById(id).src="imgs/"+rnd+".png"
+        img.src="imgs/"+rnd+".png"
     }
 }
 function Generate10(x,y){
